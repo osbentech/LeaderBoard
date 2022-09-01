@@ -1,45 +1,22 @@
 import './main.css';
+import sendAPi from '../module/sendScores.js';
+import getApi from '../module/getApi.js';
 
-const boardList = document.querySelector('.boardList');
+const refbtn = document.querySelector('.refbtn');
+export const boardList = document.querySelector('.boardList');
+const inp1 = document.querySelector('#inp1');
+const inp2 = document.querySelector('#inp2');
+const submitbtn = document.querySelector('.sbtn');
 
-const boardListArr = [
-  {
-    value: 'John: 100',
-    Index: 0,
-  },
-  {
-    value: 'Tom: 20',
-    Index: 1,
-  },
-  {
-    value: 'Mark: 50',
-    Index: 2,
-  },
-  {
-    value: 'Rita: 78',
-    Index: 3,
-  },
-  {
-    value: 'Nat: 125',
-    Index: 4,
-  },
-  {
-    value: 'Ben: 77',
-    Index: 5,
-  },
-  {
-    value: 'Pat: 42',
-    Index: 6,
-  },
-];
+submitbtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const  nameValue = inp1.value
+  const  scoreValue = inp2.value
+  sendAPi(nameValue, scoreValue);
+  inp1.value = '';
+  inp2.value = '';
+}) 
 
-function showScores() {
-  for (let i = 0; i < boardListArr.length; i += 1) {
-    boardList.innerHTML += ` <div class="score-board">
-    <p class="scores">${boardListArr[i].value}</p>
-    </div>
-        `;
-  }
-}
-
-showScores();
+refbtn.addEventListener('click', (e) => {
+  getApi()
+})

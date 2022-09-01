@@ -10,13 +10,13 @@ const submitbtn = document.querySelector('.sbtn');
 
 submitbtn.addEventListener('click', (e) => {
   e.preventDefault();
-  const  nameValue = inp1.value
-  const  scoreValue = inp2.value
+  const nameValue = inp1.value;
+  const scoreValue = inp2.value;
   sendAPi(nameValue, scoreValue);
   inp1.value = '';
   inp2.value = '';
-}) 
+});
 
-refbtn.addEventListener('click', (e) => {
-  getApi()
-})
+refbtn.addEventListener('click', () => {
+  getApi();
+});
